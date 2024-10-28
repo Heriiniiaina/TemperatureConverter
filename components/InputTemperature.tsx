@@ -1,8 +1,15 @@
-import { Text, TextInput } from "react-native";
+import { Text, TextInput, TextInputProps, View } from "react-native";
 
 import { style } from "@/constants/App.style";
-export default function InputTemperature() {
+interface InputTemperatureProps extends TextInputProps{
+    defaultValud?:String
+}
+export default function InputTemperature({defaultValue,onChangeText}:InputTemperatureProps) {
+    
   return (
-    <TextInput style={style.input}  placeholder="Entrer un temperature ici"/>
+    <View style={style.inputContainer}>
+        <TextInput style={style.input} onChangeText={onChangeText}  placeholder="Entrer un temperature ici" keyboardType="numeric" maxLength={5} defaultValue={defaultValue}/>
+        <Text style={style.unit}>°C</Text>
+    </View>
   )
 }

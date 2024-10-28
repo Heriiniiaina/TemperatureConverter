@@ -5,15 +5,22 @@ import { View } from "react-native"
 import { style } from '@/constants/App.style';
 import hotBackground from "@/assets/images/hot.png"
 import InputTemperature from '@/components/InputTemperature';
+import TemperatureDisplay from '@/components/TemperatureDisplay';
+import { useState } from 'react';
+import {DEFAULT_TEMPERATUR,DEFAULT_UNITS} from "@/constants/constant"
+import {getOpposite,convertTemperature} from "@/services/temperatureService"
 export default function HomeScreen() {
+  const [inputValue,setInputValue] = useState(DEFAULT_TEMPERATUR)
+  const [unit,setUnit] = useState(DEFAULT_UNITS)
+
   return (
     <ImageBackground source={hotBackground} style={style.container}>
         <View style={style.workspace}>
           <View>
-            <Text>Temperature</Text>
+            <TemperatureDisplay value={convertTemperature(inputValue,getOpposite(unit))} unit={getOpposite(unit)}/>
           </View>
          
-            <InputTemperature/>
+            <InputTemperature defaultValue={DEFAULT_TEMPERATUR} onChangeText={setInputValue}/>
        
           <View>
           <Text>Bouton</Text>

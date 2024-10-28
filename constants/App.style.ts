@@ -13,11 +13,27 @@ export const style = StyleSheet.create({
         alignItems:"center",
         justifyContent:"space-evenly"
     },
+    inputContainer:{
+        alignSelf:"stretch",
+        justifyContent:"center"
+        
+    },
     input:{
         backgroundColor:"white",
-        padding:2,
+        paddingLeft:25,
         borderRadius:15,
         height:50,
         alignSelf:"stretch"
+    },
+    unit:{
+        fontSize:30,
+        position:"absolute",
+        alignSelf:"flex-end",
+        paddingRight:25
+        
+    },
+    display:{
+        fontSize:50,
+        color:"white"
     }
 })
