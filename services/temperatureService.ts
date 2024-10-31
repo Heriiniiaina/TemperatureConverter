@@ -10,10 +10,10 @@ export const convertTemperature = (value:string,unit:string) =>{
     return unit == UNITS.celcius ? Number(temp - 32/ 1.8).toFixed(2).toString() : (temp* 1.8 + 32).toFixed(2).toString()
 }
 
-export const isIceTemperature = (value:string,unit:string)=>{
-    const temp:number = Number(value) 
+export const isIceTemperature = (value:number,unit:string)=>{
+   
     if(unit==UNITS.celcius){
-        return temp <= 0
+        return value <= 0
     }
-    else return temp <= 32
+    else return value <= 32
 }
