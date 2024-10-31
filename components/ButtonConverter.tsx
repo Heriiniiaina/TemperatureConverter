@@ -1,10 +1,15 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, TextInputProps } from 'react-native'
 import React from 'react'
+import { style } from '@/constants/App.style'
 
-export default function ButtonConverter() {
+interface UiniProp extends TextInputProps{
+  unit?:string,
+  
+}
+export default function ButtonConverter({unit,onPress}:UiniProp) {
   return (
-        <TouchableOpacity>
-            <Text>Convertir</Text>
+        <TouchableOpacity onPress={onPress} style={style.buttonStyle}>
+            <Text style={style.buttonTextStyle}>Convertir en {unit}</Text>
         </TouchableOpacity>
   )
 }

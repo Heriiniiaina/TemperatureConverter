@@ -4,6 +4,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import { View } from "react-native"
 import { style } from '@/constants/App.style';
 import hotBackground from "@/assets/images/hot.png"
+import coldBackground from "@/assets/images/cold.png"
 import InputTemperature from '@/components/InputTemperature';
 import TemperatureDisplay from '@/components/TemperatureDisplay';
 import { useState } from 'react';
@@ -21,10 +22,10 @@ export default function HomeScreen() {
             <TemperatureDisplay value={convertTemperature(inputValue,getOpposite(unit))} unit={getOpposite(unit)}/>
           </View>
          
-            <InputTemperature defaultValue={DEFAULT_TEMPERATUR} onChangeText={setInputValue}/>
+            <InputTemperature defaultValue={DEFAULT_TEMPERATUR} onChangeText={setInputValue} unit={unit}/>
        
           <View>
-              <ButtonConverter/>
+              <ButtonConverter unit={getOpposite(unit)} onPress={()=>setUnit(getOpposite(unit))} />
           </View>
         </View>
     </ImageBackground>

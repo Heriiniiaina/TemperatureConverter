@@ -35,5 +35,19 @@ export const style = StyleSheet.create({
     display:{
         fontSize:50,
         color:"white"
+    },
+    buttonStyle:{
+        backgroundColor:"black",
+        paddingHorizontal:40,
+        paddingVertical:10,
+        borderRadius:5,
+        width:250,
+        color:"white"
+    },
+    buttonTextStyle:{
+        color:"white",
+        alignSelf:"center",
+        fontWeight:"bold"
     }
+
 })
